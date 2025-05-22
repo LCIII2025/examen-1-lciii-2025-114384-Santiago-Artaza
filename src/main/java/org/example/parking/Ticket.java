@@ -37,6 +37,22 @@ public class Ticket {
         // por ejemplo si estuvo 45 minutos se le tarifa por 60, si estuvo 80 minutos se le tarifa por 120 minutos, etc...
         // retornar el importe final
 
+        if(getVehiculo().getTipo().equals(Vehiculo.Tipo.PICKUP)) {
+            double horas =  Math.ceil(calcularMinutos() / 60.0);
+            return horas * 180;
+
+        }
+        if(getVehiculo().getTipo().equals(Vehiculo.Tipo.SUV)) {
+            double horas =  Math.ceil(calcularMinutos() / 60.0);
+            return horas * 130;
+        }
+        if (getVehiculo().getTipo().equals(Vehiculo.Tipo.AUTO)) {
+            double horas = Math.ceil(calcularMinutos() / 60.0);
+            return horas * 100;
+        }
+
+
+
         return 0;
     }
 
